@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizEx - Online Examination System</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript File -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION BAR ========== -->
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                🎓 QuizEx
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#admin">Admin</a></li>
+                <li><a href="#student">Student</a></li>
+                <li><a href="#results">Results</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- ========== HOME SECTION ========== -->
+
+    <section id="home" class="home">
+
+        <div class="home-content">
+
+            <h1>Online Quiz & Examination System</h1>
+
+            <p>
+                Take quizzes, evaluate your performance
+                and get results instantly!
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="#admin" class="btn">
+                    Admin Login
+                </a>
+
+                <a href="#student" class="btn">
+                    Student Login
+                </a>
+
+                <a href="#results" class="btn">
+                    View Results
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== ADMIN SECTION ========== -->
+
+    <section id="admin" class="section">
+
+        <h2>Administrator Panel</h2>
+
+        <p>
+            Login to create and manage online examinations.
+        </p>
+
+        <!-- Admin Login Form -->
+
+        <div id="adminLogin">
+
+            <h3>Admin Login</h3>
+
+            <form id="adminLoginForm">
+
+                <label for="adminUsername">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="adminUsername"
+                    placeholder="Enter username"
+                    required
+                >
+
+                <label for="adminPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <button type="submit" class="btn">
+                    Login
+                </button>
+
+                <p id="adminMessage"></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- Admin Dashboard -->
+
+        <div id="adminDashboard" hidden>
+
+            <h3>Welcome, Administrator!</h3>
+
+            <p>Create and manage your examinations below.</p>
+
+            <hr>
+
+            <h3>Create New Quiz</h3>
+
+            <form id="createQuizForm">
+
+                <label for="quizTitle">
+                    Quiz Title
+                </label>
+
+                <input
+                    type="text"
+                    id="quizTitle"
+                    placeholder="Enter quiz name"
+                    required
+                >
+
+                <h3>Add Questions</h3>
+
+                <div id="questionForm">
+
+                    <label for="questionText">
+                        Question
+                    </label>
+
+                    <textarea
+                        id="questionText"
+                        placeholder="Enter your question"
+                    ></textarea>
+
+                    <label for="optionA">Option A</label>
+                    <input type="text" id="optionA"
+                        placeholder="Enter option A">
+
+                    <label for="optionB">Option B</label>
+                    <input type="text" id="optionB"
+                        placeholder="Enter option B">
+
+                    <label for="optionC">Option C</label>
+                    <input type="text" id="optionC"
+                        placeholder="Enter option C">
+
+                    <label for="optionD">Option D</label>
+                    <input type="text" id="optionD"
+                        placeholder="Enter option D">
+
+                    <label for="correctAnswer">
+                        Correct Answer
+                    </label>
+
+                    <select id="correctAnswer">
+                        <option value="">Select correct option</option>
+                        <option value="A">Option A</option>
+                        <option value="B">Option B</option>
+                        <option value="C">Option C</option>
+                        <option value="D">Option D</option>
+                    </select>
+
+                    <button type="button" id="addQuestion" class="btn">
+                        Add Question
+                    </button>
+
+                </div>
+
+                <h3>Added Questions</h3>
+
+                <div id="questionList">
+                    <p>No questions added yet.</p>
+                </div>
+
+                <button type="submit" class="btn">
+                    Save Quiz
+                </button>
+
+            </form>
+
+            <hr>
+
+            <h3>Manage Existing Quizzes</h3>
+
+            <div id="quizManagement">
+                <p>No quizzes created yet.</p>
+            </div>
+
+            <button type="button" id="adminLogout" class="btn">
+                Logout
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== STUDENT SECTION ========== -->
+
+    <section id="student" class="section">
+
+        <h2>Student Panel</h2>
+
+        <p>
+            Enter your details and attend the online examination.
+        </p>
+
+        <!-- Student Login -->
+
+        <div id="studentLogin">
+
+            <h3>Student Login</h3>
+
+            <form id="studentLoginForm">
+
+                <label for="studentName">
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label for="studentRoll">
+                    Roll Number
+                </label>
+
+                <input
+                    type="text"
+                    id="studentRoll"
+                    placeholder="Enter roll number"
+                    required
+                >
+
+                <label for="quizSelect">
+                    Select Examination
+                </label>
+
+                <select id="quizSelect" required>
+
+                    <option value="">
+                        Select a quiz
+                    </option>
+
+                </select>
+
+                <button type="submit" class="btn">
+                    Start Examination
+                </button>
+
+                <p id="studentMessage"></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- Examination Area -->
+
+        <div id="examArea" hidden>
+
+            <h3 id="examTitle">
+                Examination
+            </h3>
+
+            <p id="examInstructions">
+                Select the correct answer for each question.
+            </p>
+
+            <div id="examQuestions">
+                <!-- Questions will appear here using JavaScript -->
+            </div>
+
+            <button type="button" id="submitExam" class="btn">
+                Submit Examination
+            </button>
+
+        </div>
+
+
+        <!-- Student Result -->
+
+        <div id="studentResult" hidden>
+
+            <h3>Examination Completed!</h3>
+
+            <p id="studentScore"></p>
+
+            <p id="studentPercentage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== RESULTS SECTION ========== -->
+
+    <section id="results" class="section">
+
+        <h2>Examination Results</h2>
+
+        <p>
+            View examination performance and student marks.
+        </p>
+
+        <div id="resultsContainer">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Roll Number</th>
+                        <th>Quiz</th>
+                        <th>Marks</th>
+                        <th>Percentage</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="resultsTable">
+
+                    <tr>
+                        <td colspan="5">
+                            No results available yet.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== FOOTER ========== -->
+
+    <footer>
+
+        <p>
+            © 2026 QuizEx | Online Quiz & Examination System
+        </p>
+
+        <p>
+            Developed as a First Year CSE Micro Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
